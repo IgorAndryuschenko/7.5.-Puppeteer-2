@@ -24,13 +24,14 @@ describe ("Booking tickets", () => {
         // Arrange
         const tomorrow = ".page-nav a:nth-child(2)";
         const sessionAt13_00 = '.movie-seances__time[data-seance-id="217"][data-seance-start="780"]';
+        const standertSeatClass = "buying-scheme__chair_standart";
         const acceptButton = ".acceptin-button";
         const expectedButtonText = "Получить код бронирования";
         
         // Act
         await selectDay(page, tomorrow);
         await selectSession(page, sessionAt13_00);
-        await selectAvailableSeat(page, "buying-scheme__chair_standart");
+        await selectAvailableSeat(page, standertSeatClass);
         await bookTickets(page);
 
         // Assert
@@ -39,16 +40,17 @@ describe ("Booking tickets", () => {
   });
 
     test ("Successful booking of three VIP seats for the last available date", async () => {
-              // Arrange
+        // Arrange
         const lastAvailableDate = ".page-nav a:nth-child(7)";
         const sessionAt17_00 = '.movie-seances__time[data-seance-id="225"][data-seance-start="1020"]';
+        const vipSeatClass = "buying-scheme__chair_vip";
         const acceptButton = ".acceptin-button";
         const expectedButtonText = "Получить код бронирования";
         
         // Act
         await selectDay(page, lastAvailableDate);
         await selectSession(page, sessionAt17_00);
-        await selectAvailableSeat(page, "buying-scheme__chair_vip", 3);
+        await selectAvailableSeat(page, vipSeatClass, 3);
         await bookTickets(page);
 
         // Assert
