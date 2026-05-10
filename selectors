@@ -1,0 +1,52 @@
+Элемент                  Селектор / признак
+Сегодняшняя дата          class="page-nav" выбрать первый элемент
+Завтрашняя дата           class="page-nav" выбрать второй элемент
+Последняя дата            class="page-nav" выбрать седьмой элемент
+Сеанс 13:00               class="movie-seances__time", data-seance-start="780"
+Сеанс 17:00               class="movie-seances__time", data-seance-start="1020"
+Сеанс 20:00               class="movie-seances__time", data-seance-start="1200"
+Обычное свободное место   локатор всей зоны: class="buying-scheme__wrapper", 
+локатор ряда: class="buying-scheme__row"
+локатор места: class="buying-scheme__chair buying-scheme__chair_standart" (не знаю, можно ли это зарандомить или выбирать конкретное?)
+VIP свободное место       class="buying-scheme__chair buying-scheme__chair_vip"
+Занятое обычное место     buying-scheme__chair buying-scheme__chair_standart buying-scheme__chair_taken
+Кнопка Забронировать      class="acceptin-button", текст Забронировать
+Кнопка Получить код       class="acceptin-button", текст  Получить код бронирования
+
+
+
+Сегодня: .page-nav a:nth-child(1)
+Завтра: .page-nav a:nth-child(2)
+Последняя дата: .page-nav a:nth-child(7)
+
+Сеанс 13:00: .movie-seances__time[data-seance-id="217", data-seance-start="780"]
+Сеанс 17:00: .movie-seances__time[data-seance-id="225", data-seance-start="1020"]
+Сеанс 20:00: .movie-seances__time[data-seance-id="239", data-seance-start="1200"]
+
+Обычное свободное место: .buying-scheme__chair_standart
+VIP свободное место: .buying-scheme__chair_vip
+Занятое место: .buying-scheme__chair_taken
+Задизейбленное место: .buying-scheme__chair_disabled
+Кнопка бронирования / получения кода: .acceptin-button
+
+
+Кейс 1:
+.row 1, chair 1
+.buying-scheme__row:nth-child(1) .buying-scheme__chair:nth-child(1)
+
+Кейс 2:
+.row 10, chairs 5, 6, 7
+.buying-scheme__row:nth-child(10) .buying-scheme__chair:nth-child(5)
+.buying-scheme__row:nth-child(10) .buying-scheme__chair:nth-child(6)
+.buying-scheme__row:nth-child(10) .buying-scheme__chair:nth-child(7)
+
+Кейс 3:
+.row 7, chair 2
+.buying-scheme__row:nth-child(7) .buying-scheme__chair:nth-child(2)
+
+
+обычное: buying-scheme__chair_standart
+vip: buying-scheme__chair_vip
+Задизейбленное: buying-scheme__chair_disabled 
+Занятое: buying-scheme__chair_taken
+Выбранное: buying-scheme__chair_selected
